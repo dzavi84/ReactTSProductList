@@ -33,5 +33,5 @@ export class Collection {
       },
     },
   ];
-  handlerItemClicked(id: number) {}
+  handlerItemClicked(_id: number) {}
 }
