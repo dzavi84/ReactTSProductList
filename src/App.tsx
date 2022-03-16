@@ -1,10 +1,13 @@
 import React from 'react';
+import { CollectionView } from '../CollectionView';
 import './App.css';
 import { MyButton } from './MyButton';
+import { Collection } from './Products';
 export interface IAppProps {}
 export interface IAppState {
   showDetails: boolean;
 }
+const collectionInstance = new Collection();
 
 class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
@@ -15,10 +18,7 @@ class App extends React.Component<IAppProps, IAppState> {
   render() {
     return (
       <div>
-        <p>showDetails={this.state.showDetails ? 'true' : 'false'}</p>
-        <MyButton
-          buttonName='Click Here'
-          handleButtonClick={this.handleClick}></MyButton>
+        <CollectionView {...collectionInstance} />
       </div>
     );
   }
