@@ -1,32 +1,54 @@
 import React from 'react';
-import { CollectionView } from '../CollectionView';
+import { CollectionView } from './CollectionView';
 import './App.css';
 import { MyButton } from './MyButton';
-import { Collection } from './Products';
+import { Collection, IProduct } from './Products';
+import { DetailView } from './DetailView';
 export interface IAppProps {}
 export interface IAppState {
   showDetails: boolean;
+  product: IProduct | null;
 }
-const collectionInstance = new Collection();
 
+const collectionInstance = new Collection();
 class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
-    this.state = { showDetails: false };
+    this.showDetailView = this.showDetailView.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.state = { showDetails: false, product: null };
   }
   render() {
     return (
       <div>
-        <CollectionView {...collectionInstance} />
+        <CollectionView
+          {...collectionInstance}
+          handlerItemClicked={this.showDetailView}></CollectionView>
+        <DetailView
+          open={this.state.showDetails}
+          product={this.state.product}
+          handleClose={this.handleClose}></DetailView>
       </div>
     );
   }
-  handleClick() {
+  showDetailView(id: number) {
+    let fundItem = _.find(collectionInstance.items, (item: IProduct) => {
+      return item.id === id;
+    });
+    if (fundItem) {
+      this.setState({
+        showDetails: true,
+        product: fundItem,
+      });
+    }
+  }
+  handleClose() {
     console.log(`App.handleClick() called`);
     this.setState({
-      showDetails: !this.state.showDetails,
+      showDetails: false,
+      product: null,
     });
   }
 }
+
 export default App;
