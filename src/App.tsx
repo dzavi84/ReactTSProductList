@@ -32,7 +32,7 @@ class App extends React.Component<IAppProps, IAppState> {
     );
   }
   showDetailView(id: number) {
-    let fundItem = _.find(collectionInstance.items, (item: IProduct) => {
+    let fundItem = collectionInstance.items.find((item: IProduct) => {
       return item.id === id;
     });
     if (fundItem) {
