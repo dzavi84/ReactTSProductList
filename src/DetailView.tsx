@@ -1,6 +1,8 @@
-import { AppBar, Dialog, IconButton, Toolbar } from '@material-ui/core';
+import { AppBar, Dialog, IconButton, Slide, Toolbar } from '@material-ui/core';
+import { TransitionProps } from '@material-ui/core/transitions/transition';
 import { Close } from '@material-ui/icons';
 import React from 'react';
+import { IProduct } from './Products';
 
 export interface IDetailsProps {
   open: boolean;

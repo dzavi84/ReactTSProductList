@@ -1,7 +1,7 @@
 import { Card, CardMedia, CardHeader } from '@material-ui/core';
 import React from 'react';
 import './ItemView.css';
-import { IProduct } from './src/Products';
+import { IProduct } from './Products';
 export interface IItemView extends IProduct {
   onItemClicked(id: number): void;
 }
