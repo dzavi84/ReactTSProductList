@@ -46,7 +46,7 @@ export class DetailView extends React.Component<IDetailsProps, IDetailsState> {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
-      noSwitches: 70,
+      noSwitches: 1,
     };
   }
 
@@ -144,12 +144,12 @@ export class DetailView extends React.Component<IDetailsProps, IDetailsState> {
                   <form noValidate autoComplete='off' onSubmit={this.onSubmit}>
                     <Grid item>
                       <TextField
-                        type='number'
                         name='noSwitches'
                         id='standard-basic'
                         label='No of switches'
                         onChange={this.onChange}
                         value={this.state.noSwitches}
+                        type='number'
                       />
                     </Grid>
                     <Grid item>&nbsp;</Grid>
