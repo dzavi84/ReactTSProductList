@@ -26,6 +26,8 @@ export interface IDetailsProps {
   open: boolean;
   product: IProduct | null;
   handleClose(): void;
+  username: string;
+
 }
 
 export interface IDetailsState {
