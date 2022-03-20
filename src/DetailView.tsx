@@ -19,6 +19,7 @@ import { TransitionProps } from '@material-ui/core/transitions/transition';
 import { Close } from '@material-ui/icons';
 import React from 'react';
 import { IProduct } from './Products';
+import { microEventBus } from "./App";
 //import './DetailView.css';
 
 export interface IDetailsProps {
