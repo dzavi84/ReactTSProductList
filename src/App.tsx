@@ -10,7 +10,7 @@ import { MicroEventBus } from 'MicroFrontEnd';
 export interface IAppProps {}
 
 export let microEventBus: MicroEventBus = (window as any).microEventBus;
-export interface IAppState {
+export interface AppState {
   showDetails: boolean;
   product: IProduct | null;
   collectionInstance: Collection;
@@ -18,7 +18,7 @@ export interface IAppState {
 }
 
 //const collectionInstance = new Collection();
-class App extends React.Component<IAppProps, IAppState> {
+class App extends React.Component<IAppProps, AppState> {
   constructor(props: IAppProps) {
     super(props);
     this.showDetailView = this.showDetailView.bind(this);
